@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+
+@layer utilities {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.input{
+  @apply p-2 border-2 border-gray-200 text-lg font-light focus:outline-none hover:border-gray-400 hover:transition-colors 
+  
+}
+.span{
+  @apply  p-1 m-1 text-sm
+}
+.btn{
+  @apply text-white  text-center  p-2 bg-black
+}
+@tailwind utilities;
+
+@font-face {
+  font-family: "Tangerine";
+  src: url("../public/fonts/Tangerine-Regular.ttf");
+
+}
+@font-face {
+  font-family: "Josefin";
+  src: url("../public/fonts/JosefinSans-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Rubik";
+  src: url("../public/fonts//Rubik-Regular.ttf");
+}

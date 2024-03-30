@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {RESTAURANT_FEAGMENT} from './SharedQuery';
+import {RESTAURANT_FEAGMENT} from './sharedQuery';
 
 export const LOGIN_MUTATION = gql`
 	mutation login($data: loginInput!) {

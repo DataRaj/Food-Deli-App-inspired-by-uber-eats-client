@@ -1,5 +1,5 @@
 import {gql} from '@apollo/client';
-import {DISH_FEAGMENT, ORDER_FEAGMENT, RESTAURANT_FEAGMENT} from './SharedQuery';
+import {DISH_FEAGMENT, ORDER_FEAGMENT, RESTAURANT_FEAGMENT} from './sharedQuery';
 
 export const LOGGED_IN_USER = gql`
 	query loggedInUser {
