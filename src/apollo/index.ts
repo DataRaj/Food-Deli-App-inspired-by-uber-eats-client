@@ -6,11 +6,8 @@ import {GraphQLWsLink} from '@apollo/client/link/subscriptions';
 import {getMainDefinition} from '@apollo/client/utilities';
 import {authToken} from './GlobalVar';
 
-// const url = process.env.NODE_ENV === 'production' ? 'wss://uber-eats-back.herokuapp.com/graphql' : 'ws://localhost:4000/graphql';
-const url =
-	process.env.NODE_ENV === 'production'
-		? 'wss://uber-back.iran.liara.run/graphql'
-		: 'ws://localhost:4000/graphql';
+const url = process.env.NODE_ENV === 'production' ? 'https://food-deli-app-3d684a08097b.herokuapp.com/' : 'ws://localhost:4000/graphql';
+
 const wsLink = new GraphQLWsLink(
 	createClient({
 		url,
@@ -22,7 +19,7 @@ const wsLink = new GraphQLWsLink(
 // const uri = process.env.NODE_ENV === 'production' ? 'https://uber-eats-back.herokuapp.com/graphql' : 'http://localhost:4000/graphql';
 const uri =
 	process.env.NODE_ENV === 'production'
-		? 'https://uber-back.iran.liara.run/graphql'
+		? 'https://food-deli-app-3d684a08097b.herokuapp.com/'
 		: 'http://localhost:4000/graphql';
 const httpLink = createHttpLink({
 	uri,

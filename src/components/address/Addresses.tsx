@@ -29,7 +29,7 @@ const Addresses = ({selectedAddress, setSelectedAddress, addAddressSelected}) =>
 									key={address.id}
 									value={address}
 									className={({active, checked}) => {
-										let checking = addAddressSelected ? checked === false : checked === true;
+										const checking = addAddressSelected ? checked === false : checked === true;
 										return classNames(
 											checking && active && !addAddressSelected && 'bg-green-100',
 											checking && !addAddressSelected && 'bg-green-100',
@@ -38,7 +38,7 @@ const Addresses = ({selectedAddress, setSelectedAddress, addAddressSelected}) =>
 									}}
 								>
 									{({checked}) => {
-										let checking = addAddressSelected ? checked === false : checked === true;
+										const checking = addAddressSelected ? checked === false : checked === true;
 										return (
 											<>
 												<div className='flex-1 flex'>
