@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable no-unsafe-optional-chaining */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {useMutation, useQuery} from '@apollo/client';
 import {useForm} from 'react-hook-form';
 import {Link, useNavigate, useParams} from 'react-router-dom';
@@ -10,21 +13,19 @@ import {
 	CategoryInput,
 	EditRestaurantMutation,
 	EditRestaurantMutationVariables,
-	Restaurant,
 	RestaurantOwnerQuery,
 	RestaurantOwnerQueryVariables,
-	UserRole,
 } from '../../graphql/schemaTypes';
 import ErrorSpan from '../../components/custom/ErrorSpan';
-import {CATEGORIES, RESTAURANTS_OWNER, RESTAURANT_OWNER} from '../../graphql/queries';
+import {CATEGORIES, RESTAURANT_OWNER} from '../../graphql/queries';
 import {useEffect, useState} from 'react';
 import {uploadPhotoHandler} from '../../services/UploadPhoto';
 import useUser from '../../hooks/useUser';
 import Loading from '../../components/loading/Loading';
 
 const EditRestaurant = () => {
-	let navigate = useNavigate();
-	let {id} = useParams();
+	const navigate = useNavigate();
+	const {id} = useParams();
 	const [restaurant, setRestaurant] = useState<any>(undefined);
 	const [categories, setCategories] = useState<any>([]);
 	const [changedCategory, setChangedCategory] = useState<boolean | undefined>(undefined);
@@ -134,8 +135,8 @@ const EditRestaurant = () => {
 						<h3 className='font-bold text-lg text-gray-800 text-left w-full pl-10 '>Edit Restaurant</h3>
 
 						<div className='flex flex-col mt-5 px-20 '>
-							{errors?.name?.message && <ErrorSpan message={errors?.name?.message} />}
-							{errors?.address?.message && <ErrorSpan message={errors?.address?.message} />}
+							{errors?.name?.message && <ErrorSpan message={`${errors?.name?.message}`} />}
+							{errors?.address?.message && <ErrorSpan message={`${errors?.address?.message}`} />}
 							{serverMessage && <span className='span bg-green-500 text-white'>{serverMessage}</span>}
 						</div>
 						<form className='flex flex-col w-full mt-5 px-10 bg-white ' onSubmit={handleSubmit(onValidSubmit)}>

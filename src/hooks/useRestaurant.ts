@@ -4,7 +4,7 @@ import {RESTAURANT} from '../graphql/queries';
 import {RestaurantQuery, RestaurantQueryVariables} from '../graphql/schemaTypes';
 
 const useRestaurant = () => {
-	let {id} = useParams();
+	const {id} = useParams();
 
 	const {data, error} = useQuery<RestaurantQuery, RestaurantQueryVariables>(RESTAURANT, {variables: {data: {restaurantId: Number(id)}}});
 

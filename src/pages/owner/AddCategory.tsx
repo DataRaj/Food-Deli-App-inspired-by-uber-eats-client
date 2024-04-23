@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 import {useMutation} from '@apollo/client';
 import {useForm} from 'react-hook-form';
 import {Link, useNavigate} from 'react-router-dom';
@@ -12,7 +13,7 @@ import {uploadPhotoHandler} from '../../services/UploadPhoto';
 import useUser from '../../hooks/useUser';
 
 const AddCategory = () => {
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 	const [photoUrl, setPhotoUrl] = useState<string>('');
 	const [serverMessage, setServerMessage] = useState<string | undefined>(undefined);
 	const {user} = useUser();
@@ -73,9 +74,9 @@ const AddCategory = () => {
 						</Link>
 					</span>
 					<div className='flex flex-col mt-5 px-20 '>
-						{errors?.name?.message && <ErrorSpan message={errors?.name?.message} />}
-						{errors?.iconImg?.message && <ErrorSpan message={errors?.iconImg?.message} />}
-						{errors?.coverImg?.message && <ErrorSpan message={errors?.coverImg?.message} />}
+						{errors?.name?.message && <ErrorSpan message={`${errors?.name?.message}`} />}
+						{errors?.iconImg?.message && <ErrorSpan message={`${errors?.iconImg?.message}`} />}
+						{errors?.coverImg?.message && <ErrorSpan message={`${errors?.coverImg?.message}`} />}
 						{serverMessage && <span className='span bg-green-500 text-white'>{serverMessage}</span>}
 					</div>
 					<form className='flex flex-col w-full mt-5 px-10 bg-white ' onSubmit={handleSubmit(onValidSubmit)}>

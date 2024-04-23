@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-unsafe-optional-chaining */
 import {faLock} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {totalAllDishPrice} from '../shopping-cart/Basket';
@@ -15,7 +17,7 @@ import Addresses from '../address/Addresses';
 import useUser from '../../hooks/useUser';
 import {v4 as uuid} from 'uuid';
 const PaymentForms = () => {
-	const dishOptionsItem: any = [];
+	const dishOptionsItem: number[] = [];
 	const isDark = useReactiveVar(isDarkVar);
 	const {user} = useUser();
 	const [selectedAddress, setSelectedAddress] = useState<AddressItem | undefined>(undefined);
@@ -34,9 +36,12 @@ const PaymentForms = () => {
 		mode: 'onChange',
 	});
 
-	let navigate = useNavigate();
+	const navigate = useNavigate();
 	const update = (_, result) => {
-		const {ok, message, orderId} = result?.data?.createOrder;
+
+		const {ok, message, orderId} = 
+		
+		result?.data?.createOrder;
 		if (!ok) {
 			setError('address', {message});
 		}
@@ -76,7 +81,7 @@ const PaymentForms = () => {
 	};
 
 	const totaldishOptionsPrice = (dishOptions) => {
-		const dishQuantity: any = [];
+		const dishQuantity: number[] = [];
 
 		dishOptions?.map((option) => {
 			if (option.quantity) {
@@ -171,11 +176,11 @@ const PaymentForms = () => {
 				<div className='flex flex-col mt-5 px-20 '>
 					{/* {state?.message !== undefined ? <span className='bg-green-600 span text-white'>{state?.message}</span> : null}
 					{state?.error !== undefined ? <ErrorSpan message={state?.error} /> : null} */}
-					{errors?.address?.message && <ErrorSpan message={errors?.address?.message} />}
-					{errors?.city?.message && <ErrorSpan message={errors?.city?.message} />}
-					{errors?.region?.message && <ErrorSpan message={errors?.region?.message} />}
-					{errors?.apartment?.message && <ErrorSpan message={errors?.apartment?.message} />}
-					{errors?.postalCode?.message && <ErrorSpan message={errors?.postalCode?.message} />}
+					{errors?.address?.message && <ErrorSpan message={`${errors?.address?.message}`} />}
+					{errors?.city?.message && <ErrorSpan message={`${errors?.city?.message}`} />}
+					{errors?.region?.message && <ErrorSpan message={`${errors?.region?.message}`} />}
+					{errors?.apartment?.message && <ErrorSpan message={`${errors?.apartment?.message}`} />}
+					{errors?.postalCode?.message && <ErrorSpan message={`${errors?.postalCode?.message}`} />}
 				</div>
 			</form>
 		</>
