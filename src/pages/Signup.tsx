@@ -15,10 +15,13 @@ import {
 import ErrorSpan from '../components/custom/ErrorSpan';
 import {useState} from 'react';
 import {isDarkVar} from '../apollo/GlobalVar';
+import { uniqueId } from 'filestack-js';
 const Signup = () => {
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const {state}: {state: any} = useLocation();
-	const [mobile, setMobile] = useState<any>('+98');
-	let navigate = useNavigate();
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	const [mobile, setMobile] = useState<any>('+91');
+	const navigate = useNavigate();
 	const isDark = useReactiveVar(isDarkVar);
 	const {
 		register,
@@ -36,7 +39,7 @@ const Signup = () => {
 	});
 
 	const onCompleted = (data: CreateAccountMutation) => {
-		const {ok, message} = data?.createAccount;
+		const {ok, message} = data?.createAccount ;
 		if (!ok) {
 			setError('email', {message});
 		} else {
@@ -71,6 +74,7 @@ const Signup = () => {
 		});
 	};
 	const emailPattern =
+		// eslint-disable-next-line no-useless-escape
 		/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	const emailRegister = {
 		required: {value: true, message: 'email is required'},
@@ -164,7 +168,7 @@ const Signup = () => {
 							placeholder='Enter phone number'
 							value={mobile}
 							onChange={setMobile}
-							defaultCountry='IR'
+							defaultCountry='IN'
 						/>
 					</div>
 					<select
