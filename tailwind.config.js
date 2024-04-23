@@ -1,7 +1,5 @@
-/* eslint-disable no-undef */
-// eslint-disable-next-line no-undef, @typescript-eslint/no-var-requires
-const colors = require('tailwindcss/colors');
-module.exports = {
+import colors from 'tailwindcss/colors';
+export default  {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
@@ -26,6 +24,5 @@ module.exports = {
 			},
 		},
 	},
-	// eslint-disable-next-line no-undef
-	plugins: [require('@tailwindcss/aspect-ratio'), require('@tailwindcss/forms')],
+	plugins: ['@tailwindcss/aspect-ratio', '@tailwindcss/forms'],
 };
